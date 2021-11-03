@@ -1,23 +1,29 @@
-const startingNumber = 5
+const startingNumber = 5;
 
 const getRefrain = number => {
 	return `${number} bottles of beer on the wall\n${number} bottles of beer\ntake one down, pass it around ${number -1} bottles of beer on the wall`
-}
+};
+
 const getEnding = () => {
 	return `no more bottles of beer on the wall\nno more bottles of beer\nGo to the store, buy some more, ${startingNumber} bottles of beer on the wall`
-} 
+};
+
 
 const reciteLyrics = number => {
 	// exit condition
-	if (number == 0) console.log(getEnding())
+	if (number == 0) {
+    console.log(getEnding());
+    return;
+  }
 	
 	// recursive condition
-	console.log(getRefrain(number))
-	return reciteLyrics(number - 1)
-}
+	console.log(getRefrain(number));
+	return reciteLyrics(number - 1);
+};
 
-reciteLyrics(startingNumber)
+
+reciteLyrics(startingNumber);
 
 // Instructions: change one line to fix this function!
 
-// Hint: you may not want to click on run
+// Error: maximum call stack size error
