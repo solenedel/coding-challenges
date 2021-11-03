@@ -24,6 +24,3 @@ const reciteLyrics = number => {
 
 reciteLyrics(startingNumber);
 
-// Instructions: change one line to fix this function!
-
-// Error: maximum call stack size error
