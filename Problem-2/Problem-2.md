@@ -8,7 +8,23 @@ Even though the robot itself has no knowledge of the size of the grid, the progr
 
 The general steps to implement this problem would be:
 
-## Step 1: Generate a grid to be used by the program
+## Step 1: Generate the grid
+
+The grid can be represented as an array of length 81 (9x9). Each element of the array is an object which represents a single room. 
+
+An example of what one element would look like:
+```
+{
+  coordinates: [1, 1], 
+  visited: true,
+  walls: ['closed', 'closed', 'none', 'none']
+}
+```
+This object represents the room the robot starts in: the lower right corner of the grid. The visited property is a boolean, true if the robot has visited the room and false otherwise.
+
 
 ## Step 2: Define a function for the robot to check and count 
+
+
+-
 
