@@ -21,16 +21,36 @@ const grid = [
   },
 ];
 
+// helper functions
+
+// returns true if corner room, false if not
+const checkIfCornerRoom = (room) => {
+
+  let noDoors = 0;
+  for (const direction of room.walls) {
+    if (direction === 'none') noDoors ++;
+
+    if (noDoors === 2) {
+      console.log('this is a corner room.');
+      return true;
+    }
+  }
+  return false;
+}
+
 const robotAction = (robotLocation) => {
 
   // match the robot's current location with the corresponding room in the grid array
   for (const room of grid) {
+
     if (room.coordinates[0] === robotLocation[0] && room.coordinates[1] === robotLocation[1]) {
       console.log('Robot is in room: ', room.coordinates);
 
-
-
+      // check if current room is a corner room
+     checkIfCornerRoom(room);
       
+
+
       return;
     }
   }
