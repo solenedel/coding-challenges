@@ -57,19 +57,9 @@ The robot has a function `checkWalls` which determines whether the robot can/sho
 
 The `cornerRoomsVisited` variable is how the robot checks whether or not it has counted all the rooms. Corner rooms have two `none` values in the `walls` array, so whenever this criterion is met, the `cornerRoomsVisited` count will be incremented by 1. When this count reaches 4 and the current room has been counted, the robot will know to stop looking for new rooms. 
 
-```
-const checkWalls = (robotLocation, roomCount) {
-
-  // find the element in the grid array that matches the coordinates of robotLocation. Referred to as grid[i]
-
-  // start scanning the walls in counter clockwise direction. This uses a recursive function.
-
-  // base case: door is initially closed AND room with coordinates on the other size is not visited
-  if ( grid[i].walls[0] === )
+Looping through the directions (N,S,E,W) can be done with a simple for loop, and the overall room checking and counting process can be done recursively.
 
 
-}
-```
 NOTE: when one door of a room is changed from closed to open, the same change must ba epplied to the adjacent room on the other side of the door.
 
 ## To check: 

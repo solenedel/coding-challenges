@@ -12,27 +12,37 @@ const grid = [
   {
     coordinates: [1, 2], 
     visited: false,
-    walls: ['closed', 'closed', 'open', 'none']
+    walls: ['closed', 'closed', 'closed', 'none']
+  },
+  {
+    coordinates: [1, 3], 
+    visited: false,
+    walls: ['closed', 'closed', 'closed', 'none']
   },
 ];
 
-const robotAction = (robotLocation) {
+const robotAction = (robotLocation) => {
 
- // check if current room is a corner room:
+  // match the robot's current location with the corresponding room in the grid array
+  for (const room of grid) {
+    if (room.coordinates[0] === robotLocation[0] && room.coordinates[1] === robotLocation[1]) {
+      console.log('Robot is in room: ', room.coordinates);
 
 
 
-
-  // base case: door is initially closed 
-  if ( grid[i].walls[0] === 'closed') {
-
+      
+      return;
+    }
   }
-
-
 }
 
-// {
-//   coordinates: [1, 1], 
-//   visited: true,
-//   walls: ['closed', 'closed', 'none', 'none']
-// }
+  // // check if current room is a corner room:
+  // if ()
+
+
+  // // base case: door is initially closed 
+  // if ( grid[i].walls[0] === 'closed') {
+
+
+  // TESTING
+  robotAction(robotLocation);
