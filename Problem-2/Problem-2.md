@@ -48,20 +48,39 @@ Variables to keep track of in relation to the robot:
 ```
 robotLocation = [column, row]
 roomCount = INTEGER
+cornerRoomsVisited = INTEGER (maximum 4)
 ```
 
 The `robotLocation` variable starts at `[1, 1]` and `roomCount` starts at `1` to represent the room the robot starts in. 
 
 The robot has a function `checkWalls` which determines whether the robot can/should move to an adjacent room, and moves into it, incrementing the `roomCount` variable.
 
+The `cornerRoomsVisited` variable is how the robot checks whether or not it has counted all the rooms. Corner rooms have two `none` values in the `walls` array, so whenever this criterion is met, the `cornerRoomsVisited` count will be incremented by 1. When this count reaches 4 and the current room has been counted, the robot will know to stop looking for new rooms. 
+
 ```
 const checkWalls = (robotLocation, roomCount) {
 
-  // find the element in the grid array that matches the coordinates of robotLocation
-  // 
+  // find the element in the grid array that matches the coordinates of robotLocation. Referred to as grid[i]
+
+  // start scanning the walls in counter clockwise direction. This uses a recursive function.
+
+  // base case: door is initially closed AND room with coordinates on the other size is not visited
+  if ( grid[i].walls[0] === )
 
 
 }
+```
+
+
+## To check: 
+
+It may not be necessary to check the 'visited' status of the adjacent room before deciding whether or not to open a closed door. because the directions are always looped through in the same order, the robot will follow the same S-shaped pattern when navigating through the grid. Thus, even if a closed door has an open room on the other side, the robot will not reach the scenario where it has to face a closed door with an open door on the other side.
+
+How does the robot know when it has counted all the rooms? It can't access the total number of rooms. Perhaps we need a variable to keep track of how many corner rooms the robot has visited. When that count reaches 4, it will be the last room because the last visited room will always be a corner room. 
+
+If the robot does not know the size of the grid, how can it have access to its current location as coordinates? If it starts at [1, 1]  then this is not an issue, but what if it started at a different location? 
+
+We can assume that the robot can access its current location, but still have no idea how large the grid is. For example if it started at [3, 5] then it would know that the grid is at least 3x5 squares large, but it would not know the upper limits. 
 
 ## Further notes
 - what if the grid size changes?
