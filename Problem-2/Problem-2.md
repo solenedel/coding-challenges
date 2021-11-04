@@ -70,7 +70,7 @@ const checkWalls = (robotLocation, roomCount) {
 
 }
 ```
-
+NOTE: when one door of a room is changed from closed to open, the same change must ba epplied to the adjacent room on the other side of the door.
 
 ## To check: 
 
