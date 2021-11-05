@@ -21,7 +21,7 @@ const grid = [
   },
 ];
 
-// helper functions
+// ----------------------------- helper functions ---------------------------------- //
 
 // returns true if corner room, false if not
 const checkIfCornerRoom = (room) => {
@@ -36,8 +36,33 @@ const checkIfCornerRoom = (room) => {
     }
   }
   return false;
-}
+};
 
+// checks each direction for closed doors
+const checkWalls = (room) => {
+
+  // loop through the directions counterclockwise, starting at N
+  for (let i = 0; i < room.walls.length; i ++) {
+    if (room.walls[i] === 'none' || room.walls[i] === 'open') continue;
+    
+    else {
+      // open the door
+      room.walls[i] = 'open';
+      
+      // enter the next room, change coordinates based on direction of newly opened door
+      switch (i) {
+        case 0:
+          console.log('Move North');
+
+      }
+
+      // add the new room to the rrom count
+      roomCount ++;
+    }
+  }
+};
+
+// ------------------------------- main function ----------------------------------- //
 const robotAction = (robotLocation) => {
 
   // match the robot's current location with the corresponding room in the grid array
@@ -47,7 +72,9 @@ const robotAction = (robotLocation) => {
       console.log('Robot is in room: ', room.coordinates);
 
       // check if current room is a corner room
-     checkIfCornerRoom(room);
+     if (checkIfCornerRoom(room)) cornerRoomsVisited ++ ;
+
+     // check the walls in each direction
       
 
 
