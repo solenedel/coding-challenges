@@ -48,16 +48,49 @@ const checkWalls = (room) => {
     else {
       // open the door
       room.walls[i] = 'open';
-      
-      // enter the next room, change coordinates based on direction of newly opened door
+
+      let oppositeDoor;
+      // enter the next room, change robot coordinates based on direction of newly opened door
       switch (i) {
         case 0:
-          console.log('Move North');
-
+          console.log('move North');
+          oppositeDoor = 2;
+          robotLocation[1] ++;
+          break;
+        case 1: 
+          console.log('move West');
+          oppositeDoor = 3;
+          robotLocation[0] ++;
+          break;
+        case 2:
+          console.log('move South');
+          oppositeDoor = 0;
+          robotLocation[1] --;
+          break;
+        case 3:
+          console.log('move East');
+          oppositeDoor = 1;
+          robotLocation[0] --;
+          break;
+        default:
+          console.log('invalid direction');
       }
 
-      // add the new room to the rrom count
+      // add the new room to the room count
       roomCount ++;
+
+      // change the status of the new room's corresponding door to 'open'
+      for (const room of grid) {
+        if (room.coordinates[0] === robotLocation[0] && room.coordinates[1] === robotLocation[1]) {
+          room.walls[oppositeDoor] = 'open';
+        }
+      }
+
+      // NEXT: base case and recursive case
+
+      // BASE CASE: no more rooms to check (cornerRoomsVisited = 4)
+      // RECURSIVE CASE: cornerRoomsVisited is less than 4
+
     }
   }
 };

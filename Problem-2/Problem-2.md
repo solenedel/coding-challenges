@@ -60,7 +60,8 @@ The `cornerRoomsVisited` variable is how the robot checks whether or not it has 
 Looping through the directions (N,S,E,W) can be done with a simple for loop, and the overall room checking and counting process can be done recursively.
 
 
-NOTE: when one door of a room is changed from closed to open, the same change must ba epplied to the adjacent room on the other side of the door.
+NOTE: when one door of a room is changed from closed to open, the same change must be applied to the adjacent room on the other side of the door. For example if the robot has just opened the North door of a room and moved into the next room, the new room's South door must now be marked as opened.
+
 
 ## To check: 
 
