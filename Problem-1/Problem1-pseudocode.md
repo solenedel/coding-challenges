@@ -99,17 +99,17 @@ Within `startGame`, there is another function `checkWalls` which is a recursive 
 ```
 const startGame = (currentLocation) => {
 
-  // 1.
+  // ONLY EXECUTE ONCE PER GAME:
   // lookup the room object corresponding to the currentLocation (the starting location).
   // this room object will be referred to as `currentRoomObject`
   // change `visited` status of starting room object to true
 
-  const checkWalls = (currentRoomObject) => {
+  const checkWalls = (currentLocation) => {
 
     // For currentRoomObject:
     // iterate through walls[i] starting at i = 0 (North) and ending at i = 4 (East)
     // if walls[i] is already open or is none, move on to the next direction (i++)
-    // if walls[i] is closed AND the room on the other side of the wall has visited: false
+    // if walls[i] is closed AND the room on the other side of the wall has visited: false, then:
       // change the status of walls[i] in the currentRoomObject to open
       // change the status of the corresponding wall in the next room to open
       // change the robot's currentLocation to have the coordinates of the next room
@@ -119,14 +119,44 @@ const startGame = (currentLocation) => {
 
     // check whether all adjacent rooms have visited: true, by looping through walls[i]
 
-    // BASE CASE: all adjacent rooms have visited: true, 
-    // return roomCount (the total number of rooms)
+      // BASE CASE: all adjacent rooms have visited: true, 
+      // return roomCount (the total number of rooms)
 
-    // RECURSIVE CASE: at least one adjacent room has visited: false, 
-    // call checkWalls() with the new currentRoomObject
-    // checkWalls(currentRoomObject)
+      // RECURSIVE CASE: at least one adjacent room has visited: false, 
+      // call checkWalls() with the new currentRoomObject
+      // checkWalls(currentRoomObject)
 
   };
 };
 
 ```
+
+
+QUESTIONS: 
+
+**1. The robot starts at the lower right corner of the grid. How can the robot use its abilities to count the total number of rooms in the grid?**
+
+Answered above. The `countRooms` variable returned by `startGame()` contains the total number of rooms counted by the robot. 
+
+
+**2. The game resets and the robot moves to a random room in the grid. Does your approach still work?**
+
+Yes. The pattern in which the robot moves will be different, but each room will still only be visited once. 
+
+EXTRA CREDIT:
+
+**3. How many moves does it take to complete the count? Can you find the answer in less moves?**
+
+It should take exactly as many moves as there are rooms in the grid. So for the 9*9 grid, it would take 81 moves. It could not take less moves than that, because one of the assumptions was that the robot must visit a room in order for that room to be counted. 
+
+**4. How much data did you save from each move? Can you save less data?**
+
+Items stored in memory will be: 
+
+- the `grid` structure: generated at the start of the program. It will not change size throughout the game- only values will be updated inside the various room objects. 
+
+- the `currentLocation` array: this will be updated as the robot changes room, but the size of the array will not change. 
+
+- the `roomCount` variable: this is an integer that will be incremented by one each time a new room is counted. In the case of a 9x9 grid, it will start as ingeger `1` and end as `81`. This integer variable occupies a constant amount of memory throughout the program.
+
+The memory usage of the program will not increase as the robot counts more squares. With this particular solution for the game, I can't think of a way to save less data. 
