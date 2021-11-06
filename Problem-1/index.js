@@ -1,4 +1,5 @@
 
+/*
 let robotLocation = [1, 1]; // column, row
 let roomCount = 1;
 let cornerRoomsVisited = 0; // robot may not start in a corner room
@@ -22,21 +23,6 @@ const grid = [
 ];
 
 // ----------------------------- helper functions ---------------------------------- //
-
-// returns true if corner room, false if not
-const checkIfCornerRoom = (room) => {
-
-  let noDoors = 0;
-  for (const direction of room.walls) {
-    if (direction === 'none') noDoors ++;
-
-    if (noDoors === 2) {
-      console.log('this is a corner room.');
-      return true;
-    }
-  }
-  return false;
-};
 
 // checks each direction for closed doors
 const checkWalls = (room) => {
@@ -126,3 +112,23 @@ const robotAction = (robotLocation) => {
 
   // TESTING
   robotAction(robotLocation);
+*/
+
+let grid = {};
+
+for (let i = 1; i < 10; i++) {
+  for (let j = 1; j < 10; j++) {
+    grid[[i, j]] = {
+      coordinates: [i, j], 
+      visited: false,
+      walls: ['closed', 'closed', 'closed', 'closed']
+    };
+  } 
+}
+
+// console.log(grid);
+
+// search the grid 
+console.log(grid[[5,5]]);
+console.log(grid[[2,7]].visited);
+console.log(grid[[3,9]].coordinates);

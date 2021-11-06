@@ -67,17 +67,6 @@ Looping through the directions (N,S,E,W) can be done with a simple for loop, and
 
 NOTE: when one door of a room is changed from closed to open, the same change must be applied to the adjacent room on the other side of the door. For example if the robot has just opened the North door of a room and moved into the next room, the new room's South door must now be marked as opened.
 
-
-## To check: 
-
-It may not be necessary to check the 'visited' status of the adjacent room before deciding whether or not to open a closed door. because the directions are always looped through in the same order, the robot will follow the same swirly shaped pattern when navigating through the grid. Thus, even if a closed door has an open room on the other side, the robot will not reach the scenario where it has to face a closed door with an open door on the other side. --> NO. because if the robot does not start at one corner, the room visiting pattern will not be the same. need to check the visited status. 
-
-How does the robot know when it has counted all the rooms? It can't access the total number of rooms. Perhaps we need a variable to keep track of how many corner rooms the robot has visited. When that count reaches 4, it will be the last room because the last visited room will always be a corner room. However, this would only work if the robot starts in one corner.
-
-If the robot does not know the size of the grid, how can it have access to its current location as coordinates? If it starts at [1, 1]  then this is not an issue, but what if it started at a different location? 
-
-We can assume that the robot can access its current location, but still have no idea how large the grid is. For example if it started at [3, 5] then it would know that the grid is at least 3x5 squares large, but it would not know the upper limits. 
-
 ## Further notes
 - what if the grid size changes?
 - would it also work for a rectangular grid?
