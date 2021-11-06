@@ -34,15 +34,18 @@ async function main() {
 
   const classes = await Class.find();
   const enrollments = await Enrollment.find();
-  const students = await Student.find();
 
+  // iterate through enrollments array
   for (const enrollment of enrollments) {
 
+   // find and print student name
    console.log((await Student.find({  _id: enrollment._studentID }))[0].name);
 
+   // find and print class name
    console.log((await Class.find({  _id: enrollment._classID }))[0].name);
 
-   // EXTRA CREDIT 
+   // EXTRA CREDIT
+   // print the score (points * credits)
    console.log('Score: ', (await enrollment.points) * (classes[0].credits));
   }
 
