@@ -41,22 +41,22 @@ const checkWalls = (room) => {
         case 0:
           console.log('move North');
           oppositeDoor = 2;
-          robotLocation[1] ++;
+          currentLocation[1] ++;
           break;
         case 1: 
           console.log('move West');
           oppositeDoor = 3;
-          robotLocation[0] ++;
+          currentLocation[0] ++;
           break;
         case 2:
           console.log('move South');
           oppositeDoor = 0;
-          robotLocation[1] --;
+          currentLocation[1] --;
           break;
         case 3:
           console.log('move East');
           oppositeDoor = 1;
-          robotLocation[0] --;
+          currentLocation[0] --;
           break;
         default:
           console.log('invalid direction');

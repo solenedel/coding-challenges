@@ -102,23 +102,31 @@ const startGame = (currentLocation) => {
   // 1.
   // lookup the room object corresponding to the currentLocation (the starting location).
   // this room object will be referred to as `currentRoomObject`
-  // change `visited` status of room object to true
+  // change `visited` status of starting room object to true
 
-  const checkWalls = () => {
+  const checkWalls = (currentRoomObject) => {
 
     // For currentRoomObject:
     // iterate through walls[i] starting at i = 0 (North) and ending at i = 4 (East)
     // if walls[i] is already open or is none, move on to the next direction (i++)
-    // if walls[i] is closed AND 
+    // if walls[i] is closed AND the room on the other side of the wall has visited: false
+      // change the status of walls[i] in the currentRoomObject to open
+      // change the status of the corresponding wall in the next room to open
+      // change the robot's currentLocation to have the coordinates of the next room
+      // change the status of the status of this new room to visited: true
+      // increment roomCount by one (roomCount ++)
+      // get the new currentRoomObject by looking up the new coordinates in the grid structure
 
+    // check whether all adjacent rooms have visited: true, by looping through walls[i]
 
+    // BASE CASE: all adjacent rooms have visited: true, 
+    // return roomCount (the total number of rooms)
 
+    // RECURSIVE CASE: at least one adjacent room has visited: false, 
+    // call checkWalls() with the new currentRoomObject
+    // checkWalls(currentRoomObject)
 
-  // BASE CASE: all rooms have been visited
-  if ()
-
+  };
 };
-
-}
 
 ```
