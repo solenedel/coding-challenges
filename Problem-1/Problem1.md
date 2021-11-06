@@ -1,4 +1,4 @@
-# Robot in a square grid
+# 🤖 Robot in a square grid 🤖
 
 ## Assumptions
 
