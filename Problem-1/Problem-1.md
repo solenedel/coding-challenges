@@ -70,9 +70,9 @@ NOTE: when one door of a room is changed from closed to open, the same change mu
 
 ## To check: 
 
-It may not be necessary to check the 'visited' status of the adjacent room before deciding whether or not to open a closed door. because the directions are always looped through in the same order, the robot will follow the same S-shaped pattern when navigating through the grid. Thus, even if a closed door has an open room on the other side, the robot will not reach the scenario where it has to face a closed door with an open door on the other side.
+It may not be necessary to check the 'visited' status of the adjacent room before deciding whether or not to open a closed door. because the directions are always looped through in the same order, the robot will follow the same swirly shaped pattern when navigating through the grid. Thus, even if a closed door has an open room on the other side, the robot will not reach the scenario where it has to face a closed door with an open door on the other side. --> NO. because if the robot does not start at one corner, the room visiting pattern will not be the same. need to check the visited status. 
 
-How does the robot know when it has counted all the rooms? It can't access the total number of rooms. Perhaps we need a variable to keep track of how many corner rooms the robot has visited. When that count reaches 4, it will be the last room because the last visited room will always be a corner room. 
+How does the robot know when it has counted all the rooms? It can't access the total number of rooms. Perhaps we need a variable to keep track of how many corner rooms the robot has visited. When that count reaches 4, it will be the last room because the last visited room will always be a corner room. However, this would only work if the robot starts in one corner.
 
 If the robot does not know the size of the grid, how can it have access to its current location as coordinates? If it starts at [1, 1]  then this is not an issue, but what if it started at a different location? 
 
