@@ -30,28 +30,52 @@ async function main() {
   }
 
   // TASK 2:
-  // List all Enrollments for each Student with the Student and Class names, print this to console.
+  // List all Enrollments for each Student with the Student and Class names, 
+  // print this to console.
 
   const classes = await Class.find();
   const enrollments = await Enrollment.find();
+  JSON.parse(JSON.stringify(enrollments));
   const students = await Student.find();
+  JSON.parse(JSON.stringify(students));
+
+
+  for (const enrollment of enrollments) {
+   console.log((await Student.find({  _id: enrollment._studentID}))[0].name);
+   console.log((await Class.find({  _id: enrollment._classID}))[0].name);
+  }
+
   // console.log('enrollments: ', enrollments);
   // console.log('classes: ', classes);
   // console.log('students: ', students);
 
 
-const TEMP = await Enrollment.aggregate(
-    [
-      {
-        $lookup: {
-        from: "Student",
-        localField: "_sudentID", 
-        foreignField: "_id", 
-        as: "Students_enrollments"
-      }
-    }
-  ]
-  );
+// const TEMP = await Enrollment.aggregate(
+//     [
+//       {
+//         $lookup: {
+//         from: "Student",
+//         localField: "_studentID", 
+//         foreignField: "_id", 
+//         as: "Students_enrollments"
+//       }
+//     },
+//     {
+//       $unwind: "$Students_enrollments"
+//     },
+//       {
+//         $lookup: {
+//         from: "Class",
+//         localField: "_classID", 
+//         foreignField: "_id", 
+//         as: "Classes_enrollments"
+//       }
+//     },
+//     {
+//       $unwind: "$Classes_enrollments"
+//     },
+//   ]
+//   );
 
-  console.log(TEMP);
+//   console.log('TEMP: ', TEMP);
 }
