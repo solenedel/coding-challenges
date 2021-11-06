@@ -91,14 +91,34 @@ NOTE: when the status of one wall of a room is changed from closed to open, the 
 
 ## Steps taken by the robot
 
-The robot has a function `checkWalls` which takes in the robot's `currentLocation` as an argument. This is a recursive function that only stops once all rooms have been visited.
+
+The robot's actions can be wrapped inside a main function `startGame(currentLocation)`
+
+Within `startGame`, there is another function `checkWalls` which is a recursive function and only stops once all rooms have been visited.
 
 ```
-const checkWalls = (room) => {
+const startGame = (currentLocation) => {
 
+  // 1.
+  // lookup the room object corresponding to the currentLocation (the starting location).
+  // this room object will be referred to as `currentRoomObject`
+  // change `visited` status of room object to true
+
+  const checkWalls = () => {
+
+    // For currentRoomObject:
+    // iterate through walls[i] starting at i = 0 (North) and ending at i = 4 (East)
+    // if walls[i] is already open or is none, move on to the next direction (i++)
+    // if walls[i] is closed AND 
+
+
+
+
+  // BASE CASE: all rooms have been visited
+  if ()
 
 };
 
+}
 
-
-Looping through the directions (N,S,E,W) can be done with a simple for loop, and the overall room checking and counting process can be done recursively.
+```

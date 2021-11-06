@@ -1,5 +1,5 @@
 
-/*
+
 let robotLocation = [1, 1]; // column, row
 let roomCount = 1;
 let cornerRoomsVisited = 0; // robot may not start in a corner room
@@ -112,7 +112,7 @@ const robotAction = (robotLocation) => {
 
   // TESTING
   robotAction(robotLocation);
-*/
+
 
 let grid = {};
 
@@ -132,3 +132,14 @@ for (let i = 1; i < 10; i++) {
 console.log(grid[[5,5]]);
 console.log(grid[[2,7]].visited);
 console.log(grid[[3,9]].coordinates);
+
+
+const startGame = (currentLocation) => {
+
+  // 
+
+  const checkWalls = () => {
+
+  };
+
+};
