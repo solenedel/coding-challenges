@@ -113,8 +113,8 @@ const checkWalls = (currentLocation) => {
       // return roomCount (the total number of rooms)
 
       // RECURSIVE CASE: at least one adjacent room has visited: false, 
-      // call checkWalls() with the new currentRoomObject
-      // return checkWalls(currentRoomObject)
+      // call checkWalls() with the new currentLocation
+      // return checkWalls(currentLocation)
 
   };
   
